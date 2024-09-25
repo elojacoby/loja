@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Pesquisa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+    <div class="header-container">
+        <div class="logo">
+          <img src="imagens/Royal (3).png" alt="Logo da Loja">
+        </div>
+        <div class="header-texto">
+            <h3>Resultados de sua Pesquisa</h3>
+        </div>
+    </header>
+    <style>
+    
+        .header-texto h3 {
+            margin: 0;
+        }
+    
+        #resultados {
+            display: flex;
+            flex-wrap: wrap; /* Permite que os produtos se movam para a linha seguinte se não houver espaço suficiente */
+            gap: 20px; /* Espaço entre os produtos */
+            padding: 20px;
+            justify-content: center; /* Centraliza os produtos horizontalmente */
+        }
+    
+        .product {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px; /* Largura fixa para os produtos */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+    
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    
+        .product h2 {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+    
+        .product p {
+            font-size: 14px;
+            color: #666;
+        }
+    
+        .product button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    
+        .product button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    
+<div id="resultados"></div>
+
+<script>
+// Função para obter o valor do parâmetro de consulta da URL
+function getQueryParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+// Lista de produtos 
+const produtos = [
+    { nome: 'Tricô de Corações', preco: 'R$ 90,00', imagem: 'imagens/Captura de tela 2024-09-18 144625.png' },
+    { nome: 'Blusa azul com margaridas', preco: 'R$ 60,00', imagem: 'imagens/Captura de tela 2024-09-18 144713.png' },
+    { nome: 'Moletom Unissex', preco: 'R$ 100,00', imagem: 'imagens/Captura de tela 2024-09-18 144744.png' },
+    { nome: 'Saia Jeans', preco: 'R$ 50,00', imagem: 'imagens/Captura de tela 2024-09-18 144919.png' },
+    { nome: 'Camisa Masculina', preco: 'R$ 70,00', imagem: 'imagens/Captura de tela 2024-09-18 144943.png' },
+    { nome: 'Blusa', preco: 'R$ 30,00', imagem: 'imagens/Captura de tela 2024-09-18 145009.png' },
+    { nome: 'Calça Moletom', preco: 'R$ 40,00', imagem: 'imagens/Captura de tela 2024-09-18 145037.png' },
+    { nome: 'Camisa Unissex', preco: 'R$ 50,00', imagem: 'imagens/Captura de tela 2024-09-18 145056.png' }
+];
+
+function addToCart(nome, preco, imagem) {
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    cartItems.push({ nome, preco, imagem });
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    alert(`${nome} foi adicionado ao carrinho!`);
+}
+
+function addToWishlist(nome, preco, imagem) {
+    let wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+    cartItems.push({ nome, preco, imagem });
+    localStorage.setItem('wishlistItems', JSON.stringify(wishlistItems));
+    alert(`${nome} foi adicionado a Lista de desejos!`);
+}
+
+    
+// Função para filtrar os produtos com base no termo pesquisado
+function filtrarProdutos(query) {
+    return produtos.filter(produto =>
+        produto.nome.toLowerCase().includes(query.toLowerCase())
+    );
+}
+
+// Função para exibir os produtos filtrados na página
+function mostrarResultados(resultados) {
+    const divResultados = document.getElementById('resultados');
+    divResultados.innerHTML = ''; // Limpar resultados anteriores
+    
+    if (resultados.length === 0) {
+        divResultados.innerHTML = '<p>Nenhum produto encontrado.</p>';
+        return;
+    }
+
+    resultados.forEach(produto => {
+        const divProduto = document.createElement('div');
+        divProduto.classList.add('product');
+        divProduto.innerHTML = `
+            <img src="${produto.imagem}" alt="${produto.nome}">
+            <h2>${produto.nome}</h2>
+            <p>${produto.preco}</p>
+        `;
+        divResultados.appendChild(divProduto);
+    });
+}
+
+// Captura o termo de pesquisa da URL
+const termoPesquisa = getQueryParameter('query');
+
+// Se houver um termo de pesquisa, filtra e exibe os resultados
+if (termoPesquisa) {
+    const resultadosFiltrados = filtrarProdutos(termoPesquisa);
+    mostrarResultados(resultadosFiltrados);
+}
+
+
+
+</script>
+
+</body>
+</html>

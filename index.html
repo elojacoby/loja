@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Gowun+Batang:wght@400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Gowun+Batang:wght@400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="info-1">
+        <h1 class="info-frase-1">Sua primeira compra? Ganhe 15% de desconto</h1>
+        <img class="info-img-1" src="imagens/caminhao-de-entrega.png">
+    </nav>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+              <img src="imagens/Royal (3).png" alt="Logo da Loja">
+            </div>
+            <div class="search-bar input">
+            <form action="resultados.html" method="GET">
+                <input type="text" id="search-input" name="query" placeholder="Buscar produtos..." >
+                <button type="submit">Buscar</button>
+            </form> 
+
+              <section class="resultados-pesquisa" id="resultados-pesquisa"> </section>
+            </div>
+
+            <div class="bem-vindo">
+                <h3>Bem vindo(a)! </h3>
+            </div>
+        
+        <div class="header-links">    
+               <div class= "wishlist">
+                <a href="wishlist.html">
+                    <i class="fas fa-heart"></i> <!-- Ícone de coração para desejos -->
+                </a>
+                <span id="cart-count">0</span>
+                <a href="cart.html">
+                    <i class="fas fa-shopping-bag"></i> 
+                  </a>
+            </div>
+            </div>
+        
+    </header>
+    <br>
+    <nav class="navegar">
+        <p>Lançamentos </p>                                    
+        <p>Feminino </p>  
+        <p>Masculino </p>  
+        <p>Infantil</p>  
+        <p>Perfumaria</p>  
+        <p>Acessórios</p>  
+    </nav>
+    <br>
+<hr>
+
+<nav class="info">
+    <h1 class="info-frase">Enviamos para todo o Brasil</h1>
+    <img class="info-img" src="imagens/caminhao-de-entrega.png">
+</nav>
+<hr>
+    <div class="centro-pagina">
+        
+        <img class= "img-centro-pagina" src="imagens/imagens (2).png" alt="foto2">
+        <img class= "img-centro-pagina" src="imagens/imagens.png" alt="foto1">
+        <img class= "img-centro-pagina" src="imagens/imagens (1).png" alt="foto3">
+    </div>
+   
+
+    <section id="informacoes">
+        <div class="texto-container">
+            <img class=texto-img src="imagens/entrega-rapida.png" alt="Entrega rapida">
+            <p>Compras acima de R$ 99,90<br> Frete Grátis<br>Para o Brasil todo.</p>
+        </div>
+        <div class="texto"></div>
+            <img class=texto-img src="imagens/pagamento-em-dinheiro.png" alt="Pagamento">
+            <p>Economize com Cupons<br> de Desconto<br>clique e resgate os seus.<br>
+        </div>
+        <div class="texto"></div>
+            <img class=texto-img src="imagens/cartao-de-credito.png" alt="Cartão de credito">
+            <p>Tudo em até 6X Sem Juros<br> e parcela <br>mínima de R$ 10.br</p>
+        </div>
+    </section>
+
+<!--para resultados da pesquisa -->
+    <div id="search-results" style="display:none;">
+        <button id="back-btn">Voltar</button>
+        <div id="results-list"></div>
+      </div>
+
+    <main>
+        <section id="products">
+            <div class="product" data-name="Tricô de Corações">
+                <img src="imagens/Captura de tela 2024-09-18 144625.png" alt="Camiseta Azul">
+                <h2>Tricô de Corações</h2>
+                <p>R$ 90,00</p>
+                <button onclick="addToCart('Tricô de Corações', 90,'imagens/Captura de tela 2024-09-18 144625.png')">Adicionar ao Carrinho</button>
+                <button class="wishlist-btn" onclick="addToWishlist('Tricô de Corações', 90, 'imagens/Captura de tela 2024-09-18 144625.png')">
+                    <i class="fas fa-heart"></i>
+                </button>
+                        </div>
+            <div class="product" data-name="Blusa azul com margaridas">
+                <img src="imagens/Captura de tela 2024-09-18 144713.png" alt="Camiseta Vermelha">
+                <h2>Blusa azul com margaridas</h2>
+                <p>R$ 60,00</p>
+                <button onclick="addToCart('Blusa azul com margaridas', 60, 'imagens/Captura de tela 2024-09-18 144713.png')">Adicionar ao Carrinho</button>
+                <button  class="wishlist-btn" onclick="addToWishlist('Blusa azul com margaridas', 60, 'imagens/Captura de tela 2024-09-18 144713.png')">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+            <div class="product" data-name="Moletom Unissex">
+                <img src="imagens/Captura de tela 2024-09-18 144744.png" alt="Calça Jeans">
+                <h2>Moletom Unissex</h2>
+                <p>R$ 100,00</p>
+                <button onclick="addToCart('Moletom Unissex', 100,'imagens/Captura de tela 2024-09-18 144744.png')">Adicionar ao Carrinho</button>
+                <button class="wishlist-btn" onclick="addToWishlist('Moletom Unissex', 100, 'imagens/Captura de tela 2024-09-18 144744.png')">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+            <div class="product" data-name="Saia Jeans">
+                <img src="imagens/Captura de tela 2024-09-18 144919.png" alt="Calça Jeans">
+                <h2>Saia Jeans</h2>
+                <p>R$ 50,00</p>
+                <button onclick="addToCart('Saia Jeans', 50,'imagens/Captura de tela 2024-09-18 144919.png')">Adicionar ao Carrinho</button>
+                <button class="wishlist-btn" onclick="addToWishlist('Saia Jeans', 50, 'imagens/Captura de tela 2024-09-18 144919.png')">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+            <div class="product" data-name="Camisa Masculina">
+                <img src="imagens/Captura de tela 2024-09-18 144943.png" alt="Calça Jeans">
+                <h2>Camisa Masculina</h2>
+                <p>R$ 70,00</p>
+                <button onclick="addToCart('Camisa Masculina', 70,'imagens/Captura de tela 2024-09-18 144943.png')">Adicionar ao Carrinho</button>
+                <button class="wishlist-btn" onclick="addToWishlist('Camisa Masculina', 70, 'imagens/Captura de tela 2024-09-18 144943.png')">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+            <div class="product" data-name="Blusa">
+                <img src="imagens/Captura de tela 2024-09-18 145009.png" alt="Calça Jeans">
+                <h2>Blusa</h2>
+                <p>R$ 30,00</p>
+                <button onclick="addToCart('Blusa', 30, 'imagens/Captura de tela 2024-09-18 145009.png')">Adicionar ao Carrinho</button>
+                <button class="wishlist-btn" onclick="addToWishlist('Blusa', 30, 'imagens/Captura de tela 2024-09-18 145009.png')">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+            <div class="product" data-name="Calça Moletom">
+                <img src="imagens/Captura de tela 2024-09-18 145037.png" alt="Calça Jeans">
+                <h2>Calça Moletom</h2>
+                <p>R$ 40,00</p>
+                <button onclick="addToCart('Calça Moletom', 40, 'imagens/Captura de tela 2024-09-18 145037.png')">Adicionar ao Carrinho</button>
+                <button class="wishlist-btn" onclick="addToWishlist('Calça Moletom', 40, 'imagens/Captura de tela 2024-09-18 145037.png')">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+            <div class="product" data-name="Camisa Unissex">
+                <img src="imagens/Captura de tela 2024-09-18 145056.png" alt="Calça Jeans">
+                <h2>Camisa Unissex</h2>
+                <p>R$ 50,00</p>
+                <button onclick="addToCart('Camisa Unissex', 50,'imagens/Captura de tela 2024-09-18 145056.png')">Adicionar ao Carrinho</button>
+                <button class="wishlist-btn" onclick="addToWishlist('Camisa Unissex', 99.90, 'imagens/Captura de tela 2024-09-18 145056.png')">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>Loja de Roupas 2024
+        </p>
+        <p class="referências">Referências das imagens: https://stockcake.com/
+            <br>https://br.shein.com/
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    // Função de busca de produtos
+    function buscarProdutos() {
+        let input = document.getElementById('search-input').value.toLowerCase();
+        let produtos = document.getElementsByClassName('product');
+        
+        for (let i = 0; i < produtos.length; i++) {
+            let nomeProduto = produtos[i].getAttribute('data-name').toLowerCase();
+            
+            if (nomeProduto.includes(input)) {
+                produtos[i].style.display = "block";
+            } else {
+                produtos[i].style.display = "none";
+            }
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Desejos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Gowun+Batang:wght@400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Gowun+Batang:wght@400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+       
+        .wishlist-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+        }
+        .wishlist-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 500px;
+            padding: 50px;
+            background-color: white;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            box-shadow: 0 10px 8px rgba(0, 0, 0, 0.1);
+        }
+        .wishlist-item-img {
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+        }
+        h3 {
+            font-family: "Dancing Script", cursive;
+            font-size: 28px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        footer {
+            margin-top: auto;
+            padding: 10px;
+            background-color: #fffbfb;
+            color: white;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="imagens/Royal (3).png" alt="Logo da Loja">
+            </div>
+            <div class="bem-vindo">
+                <h3>Minha Lista de Desejos</h3>
+            </div>
+            <div class="wishlist">
+                <span id="wishlist-count"></span>
+                
+            </div>
+        </div>
+    </header>
+
+    <div class="wishlist-container">
+        <div id="wishlist-items">
+            <!-- Itens da lista de desejos serão exibidos aqui -->
+        </div>
+        <p id="wishlist-total">Total: R$ 0,00</p>
+    </div>
+
+    <footer>
+        <p>Loja de Roupas 2024</p>
+        <p class="referências">Referências das imagens: https://stockcake.com/<br>https://br.shein.com/</p>
+    </footer>
+
+    <script>
+        function loadWishlist() {
+            const wishlistItems = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const wishlistItemsContainer = document.getElementById('wishlist-items');
+            const wishlistTotalContainer = document.getElementById('wishlist-total');
+            let total = 0;
+
+            if (wishlistItems.length === 0) {
+                wishlistItemsContainer.innerHTML = "<p>Sua lista de desejos está vazia.<br>Adicione algo!</p>";
+                wishlistTotalContainer.innerHTML = "Total: R$ 0,00"; // Limpa o total quando não há itens
+            } else {
+                wishlistItemsContainer.innerHTML = ''; // Limpa os itens anteriores
+
+                wishlistItems.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.classList.add('wishlist-item');
+
+                    itemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="wishlist-item-img">
+                        <p>${item.name} - R$ ${item.price.toFixed(2)}</p>
+                        <button class="remove-btn" onclick="removeFromWishlist(${index})">Remover</button>
+                    `;
+                    wishlistItemsContainer.appendChild(itemElement);
+
+                    total += item.price;
+                });
+
+                wishlistTotalContainer.innerHTML = `Total: R$ ${total.toFixed(2)}`;
+            }
+        }
+
+        function removeFromWishlist(index) {
+            let wishlistItems = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlistItems.splice(index, 1);
+            localStorage.setItem('wishlist', JSON.stringify(wishlistItems));
+            document.getElementById('wishlist-count').innerText = wishlistItems.length;
+            loadWishlist();
+        }
+
+        function addToWishlist(name, price, image) {
+            let wishlistItems = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlistItems.push({ name, price, image });
+            localStorage.setItem('wishlist', JSON.stringify(wishlistItems));
+            document.getElementById('wishlist-count').innerText = wishlistItems.length;
+            loadWishlist();
+        }
+
+        window.onload = function() {
+            loadWishlist();
+        };
+    </script>
+</body>
+</html>

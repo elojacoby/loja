@@ -1,0 +1,335 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+.info-1{
+    display: flex;
+    justify-content: center;
+    
+}
+.info-frase-1{
+    font-size: 25px;
+   font-family: cursive;
+    font-family: "Dancing Script", cursive;
+
+}
+.info-img{
+    width: 30px;
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+    
+}
+.info-frase{
+    font-size: 20px;
+  
+
+}
+.info-img-1{
+    width: 30px;
+}
+
+header {
+    background-color: #000000;
+    padding: 5px 20px;/*espaçamento interno ao conteúdo do cabeçalho.  10px=topo e inferior,  20px laterais*/
+    color:#ffffff;
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+    gap:60px;
+  }
+  
+  /* Estilo para a logo */
+  .logo img {
+    height: 65px; /* Ajuste a altura da logo conforme necessário */
+  }
+  
+  /* Estilo para a barra de pesquisa */
+  .search-bar input {
+    width: 300px;
+    padding: 4px 15px;
+    border: 1px solid #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 18px;
+
+  }
+  .bem-vindo{
+    font-size: 16px;
+    display: flex;
+    font-family: "Gowun Batang", serif;
+    
+  }
+
+  .header-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    margin-left: 350px;
+   
+  }
+  
+  /* Estilo para os links do cabeçalho */
+  .header-links div {
+    display: flex;
+    align-items: left;
+    font-size: 14px;
+    cursor: pointer;
+
+  }
+  
+  .header-links i {
+    margin-right: 100px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  /* Estilos adicionais */
+  .wishlist i {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+  }
+  
+  .cart {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaço entre os ícones */
+}
+
+.cart a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.cart i {
+    font-size: 24px; /* Tamanho dos ícones */
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cart-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.cart img {
+    margin-left: 10px;
+}
+
+.navegar{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 16px;
+    font-family: "IBM Plex Mono", monospace;
+
+}
+hr{
+    width: 90%;
+    margin: 0 auto;
+    height: 4px;
+    background-color: #000000;
+}
+
+.centro-pagina{
+    display:flex;
+    width:1500px;
+    height:400px;
+}
+.img-centro-pagina{
+    width: 30%;
+    margin: 30px;
+    border-radius: 20px;
+    margin-right: 7px;
+    margin-left:30px;
+    cursor: pointer;
+    flex-grow:1;
+    object-fit: cover;
+    opacity:0.5;
+    transition: 0.5s ease;
+}
+
+.img-centro-pagina:hover{
+    width:300px;
+   opacity:1;
+   filter:contrast(120%)
+}
+.texto-container {
+    display: flex;
+    justify-content: space-around; /* Distribui o espaço igualmente entre os itens */
+    align-items: center; /* Alinha verticalmente os itens ao centro */
+    text-align: center; /* Centraliza o texto dentro dos itens */
+    flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha em telas pequenas */
+}
+#informacoes{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.texto {
+    display: flex; 
+    align-items: center; /* Alinha a imagem e o texto ao centro */
+    margin: 2px;
+}
+.texto-img {
+    width: 80px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto;
+    margin-bottom: 2px; /* Espaço entre a imagem e o texto */
+
+}
+main {
+    padding: 20px;
+    display: flex;
+}
+
+#products {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.product {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(162, 38, 38, 0.1);
+    text-align: center;
+    width: 200px;
+}
+
+.product img {
+    width: 90%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+
+}
+
+.product h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.product p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.product button {
+    background-color: #312f2f;
+    color: #f4f2f2;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product button:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    bottom: 0;
+}
+.referências{
+    font-size: 10px;
+}
+
+.remove-btn {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.remove-btn:hover {
+    background-color: #cc0000;
+}
+
+
+
+
+/* Ajustes para telas maiores (tablets e notebooks) */
+@media (min-width: 768px) {
+    #products {
+        justify-content: space-between;
+    }
+
+    .product {
+        width: 48%; /* Dois produtos por linha em telas maiores */
+    }
+}
+
+/* Ajustes para telas grandes (desktop) */
+@media (min-width: 1024px) {
+    .product {
+        width: 30%; /* Três produtos por linha em telas grandes */
+    }
+}
+
+/* Para dispositivos móveis menores */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column; /* Alinha o título e carrinho verticalmente */
+        text-align: center;
+    }
+
+    .cart {
+        margin-top: 10px; /* Ajusta o carrinho no mobile */
+    }
+
+    #products {
+        justify-content: center; /* Centraliza os produtos em telas menores */
+    }
+
+    .product {
+        width: 100%; /* Produtos ocupam 100% da largura em telas pequenas */
+        max-width: 100%; /* Remove o limite de 300px */
+    }
+
+    header h1 {
+        font-size: 22px; /* Ajusta o tamanho do título no mobile */
+    }
+
+    .product button {
+        font-size: 14px; /* Tamanho do botão para caber melhor em celulares */
+    }
+}
